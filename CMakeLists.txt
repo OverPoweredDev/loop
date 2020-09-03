@@ -3,4 +3,4 @@ project(fibre)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(fibre main.cpp)
+add_executable(loop main.cpp)
