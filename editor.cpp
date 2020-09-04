@@ -5,8 +5,9 @@
 int main() {
     sf::RenderWindow window(sf::VideoMode(720, 405), "loop");
     window.setVerticalSyncEnabled(true);
-    sf::Color backgroundColor = sf::Color(255, 29, 45);
+    sf::Color backgroundColor = sf::Color(239, 235, 230);
     window.clear(backgroundColor);
+    window.display();
     // run the program as long as the window is open
     while (window.isOpen())
     {

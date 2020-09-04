@@ -13,16 +13,23 @@ Simple Text Editor built using SFML and C++ for a College Project
 ### Navigation
 
 ```
-├─ build
-├─ src
-├─ images
-│  └─ SDP_banner.png
-├─ editor.cpp
-├─ Makefile
-└─ README.md
+loop
+  ├─ editor
+  ├─ images
+  │  └─ SDP_banner.png
+  ├─ editor.cpp
+  ├─ Makefile
+  └─ README.md
 ```
 
 ### Setup
+
+Extract the files into a directory then run `make`
+
+### Also Look at
+
+[SFML Documentation](https://www.sfml-dev.org/documentation/2.5.1/)
+[Writing a Makefile](https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/)
 
 ### About Me
 

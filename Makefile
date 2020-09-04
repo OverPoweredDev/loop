@@ -10,6 +10,9 @@ LIBS = -lsfml-graphics -lsfml-window -lsfml-system
 BIN = loop
 
 .PHONY: all loop clean
-loop:
+create:
 	$(GPP) $(FLAGS) -o $(BIN) editor.cpp $(LIBS)
 	./$(BIN)
+
+remove:
+	rm -r ./$(BIN)
