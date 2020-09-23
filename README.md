@@ -13,14 +13,34 @@ Simple Text Editor built using SFML and C++ for a College Project
 
 ### Navigation
 
+##### Layer Diagram
+![layer_diagram](https://github.com/OverPoweredDev/loop/blob/master/images/Layer_diagram.png)
+
+##### Repo Tree
 ```
-loop
-  ├─ editor
-  ├─ images
-  │  └─ SDP_banner.png
-  ├─ editor.cpp
-  ├─ Makefile
-  └─ README.md
+├─ editor
+│  ├─ Buffer.cpp
+│  ├─ Buffer.h
+│  ├─ Content.cpp
+│  ├─ Content.h
+│  ├─ Cursor.cpp
+│  ├─ Cursor.h
+│  ├─ Document.cpp
+│  ├─ Document.h
+│  ├─ InputController.cpp
+│  ├─ InputController.h
+│  ├─ TextSelection.cpp
+│  ├─ TextSelection.h
+│  ├─ Window.cpp
+│  └─ Window.h
+├─ images
+│  ├─ Layer Diagram.svg
+│  └─ SDP_banner.png
+├─ Makefile
+├─ README.md
+├─ editor.cpp
+├─ input.txt
+└─ output.txt
 ```
 
 ### Setup
