@@ -1,23 +1,61 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/System.hpp>
+//#include <SFML/Graphics.hpp>
+//#include <SFML/Window.hpp>
+//#include <SFML/System.hpp>
+#include <fstream>
+#include "editor/Buffer.h"
+#include "editor/Document.h"
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(720, 405), "loop");
-    window.setVerticalSyncEnabled(true);
-    sf::Color backgroundColor = sf::Color(239, 235, 230);
-    window.clear(backgroundColor);
-    window.display();
-    // run the program as long as the window is open
-    while (window.isOpen())
-    {
-        // check all the window's events that were triggered since the last iteration of the loop
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            // "close requested" event: we close the window
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-    }
+
+    Document doc;
+    doc.init("input.txt");
+    doc.printToConsole();
+    doc.insertText("insertion", 20);
+    cout << doc.getBufferPos();
+    doc.saveFile("output.txt");
+
+
+//    Buffer b;
+//    std::fstream fs;
+//    fs.open("input.txt", std::fstream::in | std::fstream::out);
+//
+//    for (int i = 0; i < 10; i++) {
+//        b.buffer[i] = '_';
+//    }
+//
+//    for (int i = 0; i < b.size; i++) {
+//        cout << b.buffer[i] << " ";
+//    }
+//
+//    cout << endl;
+//
+//    string input = "OPbest";
+//    int position = 0;
+//
+//    b.insert(input, position);
+//
+//    cout << endl;
+//    cout << "Inserting a string to buffer" << input << endl;
+//    cout << "Output: ";
+//    for (int i = 0; i < b.size; i++) {
+//        cout << b.buffer[i] << " ";
+//    }
+//
+//    input = " da ";
+//    position = 2;
+//
+//    b.insert(input, position);
+//
+//    cout << "Output: ";
+//    for (int i = 0; i < b.size; i++) {
+//        fs << b.buffer[i];
+//    }
+//
+//    fs.close();
+
+    return 0;
 }
