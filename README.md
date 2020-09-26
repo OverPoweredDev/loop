@@ -14,7 +14,7 @@ Simple Text Editor built using SFML and C++ for a College Project
 ### Navigation
 
 ##### Layer Diagram
-![layer_diagram](https://github.com/OverPoweredDev/loop/blob/master/images/Layer_diagram.png)
+<img src = "https://github.com/OverPoweredDev/loop/blob/master/images/Layer_diagram.svg" alt = "layer_diagram" width = "400" height = "500"></img>
 
 ##### Repo Tree
 ```
