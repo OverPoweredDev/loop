@@ -30,5 +30,4 @@ public:
     int getBufferPos(void);
 };
 
-
 #endif //LOOP_DOCUMENT_H
