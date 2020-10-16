@@ -1,33 +1,35 @@
-#ifndef LOOP_DOCUMENT_H
-#define LOOP_DOCUMENT_H
+#ifndef L00P_DOCUMENT_H
+#define L00P_DOCUMENT_H
 
-#include <string>
 #include <fstream>
-#include <iostream>
-
-#include "Buffer.h"
+#include "Utility.h"
 
 using namespace std;
 
 class Document {
 private:
-    int length = 0;
+    char **lineBuffer;
     bool documentHasChanged;
-    Buffer text;
+    int lineCount = 0;
 
 public:
-    //actual editing
-    void init(string filename);
-    void saveFile(string filename);
-    void insertText(string text, int position);
+    //file handling
+    void init(std::string filename);
+    void saveFile(std::string filename);
 
     //test functions
-    void printToConsole(void);
+    void printToConsole();
+
+    //editing
+    void insert(int lineNum, int charNum, char c);
+    void deletePos(int lineNum, int charNum);
 
     //getters
-    bool hasChanged(void);
-    int getLength(void);
-    int getBufferPos(void);
+    char** getLineBuffer();
+    char* getLine(int i);
+    bool hasChanged();
+    int getLineCount();
 };
 
-#endif //LOOP_DOCUMENT_H
+
+#endif //L00P_DOCUMENT_H

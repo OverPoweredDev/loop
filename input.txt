@@ -1,6 +1,0 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Integer in tortor et elit rhoncus tempor id consequat ipsum.
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur orci est, auctor et luctus vitae, lobortis tempor diam. Fusce dapibus pretium accumsan.
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-Aenean iaculis viverra enim, aliquet consectetur est commodo eget.
-Pellentesque vestibulum malesuada ante id venenatis.

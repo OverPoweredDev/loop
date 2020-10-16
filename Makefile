@@ -1,18 +1,13 @@
 GPP = g++
-SFML_VERSION = 2.5.1
+SDL_VERSION = 2.0.0
 
-SFML_LIB = /usr/local/lib/SFML-$(SFML_VERSION)/lib
-SFML_HEADERS = /usr/local/lib/SFML-$(SFML_VERSION)/include
+FLAGS = -w
+LINKER_FLAGS = -lSDL2 -lSDL2_ttf
+EXEC = loop
 
-FLAGS = -Wall -L $(SFML_LIB) -I $(SFML_HEADERS)
-LIBS = -lsfml-graphics -lsfml-window -lsfml-system
-CPP = editor.cpp $(wildcard editor/*.cpp)
-BIN = loop
+CPP = main.cpp $(wildcard editor/*.cpp)
 
 .PHONY: all loop clean
-create:
-	$(GPP) $(FLAGS) -o $(BIN) $(CPP) $(LIBS)
-	./$(BIN)
-
-remove:
-	rm -r ./$(BIN)
+all :
+	$(GPP) $(CPP) $(FLAGS) $(LINKER_FLAGS) -o $(EXEC)
+	./$(EXEC)

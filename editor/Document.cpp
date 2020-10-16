@@ -4,20 +4,31 @@ using namespace std;
 
 //basic file handling
 void Document::init(string filename) {
-    string line;
     ifstream inFile(filename);
+    int numLine = 0, numChar = 0;
+    string line;
 
-    //Error in opening File
-    if (!inFile.is_open()) {
-        cerr << "Error opening file: " << filename << endl;
-        return;
+    while (getline(inFile, line))
+        lineCount++;
+
+    lineCount = 20;
+
+    lineBuffer = (char **) malloc(lineCount * sizeof(char *));
+
+    for (int i = 0; i < lineCount; i++) {
+        lineBuffer[i] = (char *) malloc(80 * sizeof(char));
+        memset(lineBuffer[i], ' ', 80);
     }
 
-    //Load Text File into Gap Buffer
+    //reset cursor
+    inFile.clear();
+    inFile.seekg(0, ios::beg);
+
     while (getline(inFile, line)) {
-        line += "\n";
-        text.insert(line, this->length);
-        this->length += line.length();
+        for (char c: line)
+            lineBuffer[numLine][numChar++] = c;
+        numChar = 0;
+        numLine += 1;
     }
 
     this->documentHasChanged = false;
@@ -34,34 +45,45 @@ void Document::saveFile(string filename) {
     }
 
     //Actual File Saving
-    outputFile << this->text.buffer;
+    for (int i = 0; i < lineCount; i++) {
+        outputFile << this->lineBuffer[i];
+        outputFile << '\n';
+    }
     this->documentHasChanged = false;
     outputFile.close();
 }
 
-void Document::insertText(string text, int position) {
-    this->text.insert(text, position);
-    this->documentHasChanged = true;
+
+//testing
+void Document::printToConsole() {
+    for (int i = 0; i < lineCount; i++)
+        cout << lineBuffer[i] << endl;
 }
 
 
-//test functions
-void Document::printToConsole(){
-    for (int i = 0; i < length; i++) {
-        cout << text.buffer[i];
-    }
+//editing
+void Document::insert(int lineNum, int charNum, char c) {
+    lineBuffer[lineNum][charNum] = c;
+}
+
+void Document::deletePos(int lineNum, int charNum) {
+    lineBuffer[lineNum][charNum] = ' ';
 }
 
 
 //getters
+char **Document::getLineBuffer() {
+    return lineBuffer;
+}
+
+char *Document::getLine(int i) {
+    return lineBuffer[i];
+}
+
+int Document::getLineCount() {
+    return lineCount;
+}
+
 bool Document::hasChanged() {
-    return this->documentHasChanged;
-}
-
-int Document::getLength(){
-    return this->length;
-}
-
-int Document::getBufferPos() {
-    return this->text.gap_left;
+    return documentHasChanged;
 }

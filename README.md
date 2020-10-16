@@ -34,7 +34,7 @@ Simple Text Editor built using SFML and C++ for a College Project
 │  ├─ Window.cpp
 │  └─ Window.h
 ├─ images
-│  ├─ Layer Diagram.svg
+│  ├─ Layer_diagram.svg
 │  └─ SDP_banner.png
 ├─ Makefile
 ├─ README.md
