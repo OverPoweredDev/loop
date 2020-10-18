@@ -5,22 +5,7 @@
 
 using namespace std;
 
-void printLines(Document doc, TTF_Font *font, SDL_Color color, SDL_Renderer *renderer) {
-    char *line;
-    int height = TTF_FontHeight(font);
-    for (int i = 0; i < doc.getLineCount(); i++) {
-        line = doc.getLine(i);
-        int texW = 0;
-        int texH = 0;
-        SDL_Surface *surface = TTF_RenderText_Solid(font, line, color);
-        SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
 
-        SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
-        SDL_Rect rect = {OFFSET_X, i * height, texW, texH};
-
-        SDL_RenderCopy(renderer, texture, NULL, &rect);
-    }
-}
 
 int main(int argc, char *argv[]) {
 /*==========< SDL Init >==============================================================================================*/
@@ -66,7 +51,6 @@ int main(int argc, char *argv[]) {
 /*======< Create SDL Window>==========================================================================================*/
 
     bool done = false;
-    int frameNum = 0;
     char ascii;
     while (!done) {
         SDL_Event event;
@@ -93,8 +77,7 @@ int main(int argc, char *argv[]) {
                         document.saveFile("output.txt");
                         break;
                     case SDLK_ENTER:
-                        document.createLine(currLine, 1);
-                        content.shiftPos(++currLine,0);
+                        content.shiftDown();
                         break;
                     case SDLK_UP:
                         content.shiftUp();
@@ -129,7 +112,7 @@ int main(int argc, char *argv[]) {
 
             cursor.fill(screenPixels);
             SDL_RenderCopy(renderer, screen, NULL, NULL);
-            printLines(document, font, color, renderer);
+            content.renderDocument(font, color, renderer);
             SDL_RenderPresent(renderer);
 
             SDL_Delay(10);

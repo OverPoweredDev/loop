@@ -17,7 +17,7 @@
 typedef uint32_t u32;
 
 static bool isValid(char c) {
-    if (c >= '!' && c <= '~')
+    if ((c >= '!' && c <= '~') || c == ' ')
         return true;
     return false;
 }

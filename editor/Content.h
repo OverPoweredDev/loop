@@ -13,6 +13,9 @@ private:
 public:
     Content(Document *doc, Cursor *cur);
 
+    //rendering
+    void renderDocument(TTF_Font *font, SDL_Color color, SDL_Renderer *renderer);
+
     //cursor shifting
     void shiftUp();
     void shiftDown();

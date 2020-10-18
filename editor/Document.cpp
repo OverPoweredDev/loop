@@ -16,8 +16,8 @@ void Document::init(string filename) {
     lineBuffer = (char **) malloc(lineCount * sizeof(char *));
 
     for (int i = 0; i < lineCount; i++) {
-        lineBuffer[i] = (char *) malloc(80 * sizeof(char));
-        memset(lineBuffer[i], ' ', 80 * sizeof(char));
+        lineBuffer[i] = (char *) malloc(LINE_LIMIT * sizeof(char));
+        memset(lineBuffer[i], ' ', LINE_LIMIT * sizeof(char));
     }
 
     //reset cursor
@@ -69,8 +69,8 @@ void Document::createLine(int lineNum, int numLines) {
 
     //allocate memory for empty lines
     for (int i = prevCount; i < lineCount; i++) {
-        lineBuffer[i] = (char *) malloc(80 * sizeof(char));
-        memset(lineBuffer[i], ' ', 80 * sizeof(char));
+        lineBuffer[i] = (char *) malloc(LINE_LIMIT * sizeof(char));
+        memset(lineBuffer[i], ' ', LINE_LIMIT * sizeof(char));
     }
 
     //shift any existing lines down
@@ -81,18 +81,20 @@ void Document::createLine(int lineNum, int numLines) {
 
 void Document::shiftLineDown(int lineNum) {
     lineBuffer[lineNum + 1] = lineBuffer[lineNum];
-    memset(lineBuffer[lineNum], ' ', 80 * sizeof(char));
+    memset(lineBuffer[lineNum], ' ', LINE_LIMIT * sizeof(char));
 }
 
 void Document::insertPos(int lineNum, int charNum, char c) {
     if (isValid(c))
-        lineBuffer[lineNum][charNum] = c;
+        for (int i = LINE_LIMIT; i >= charNum; i--)
+            lineBuffer[lineNum][i + 1] = lineBuffer[lineNum][i];
+    lineBuffer[lineNum][charNum] = c;
 }
 
 void Document::deletePos(int lineNum, int charNum) {
-    for(int i = charNum+1; i < 80; i++)
-        lineBuffer[lineNum][i-1] = lineBuffer[lineNum][i];
-    lineBuffer[lineNum][80] = ' ';
+    for (int i = charNum + 1; i < LINE_LIMIT; i++)
+        lineBuffer[lineNum][i - 1] = lineBuffer[lineNum][i];
+    lineBuffer[lineNum][LINE_LIMIT] = ' ';
 }
 
 
