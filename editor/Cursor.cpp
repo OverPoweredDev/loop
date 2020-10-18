@@ -13,35 +13,11 @@ void Cursor::fill(u32 *screen_pixels) {
     }
 }
 
-void Cursor::shiftLeft() {
-    if (x > OFFSET_X) {
-        this->x -= charWidth;
-        this->charNumber -= 1;
-    }
-}
-
-void Cursor::shiftRight() {
-    if(charNumber < LINE_LIMIT && x < SCREEN_WIDTH) {
-        this->x += charWidth;
-        this->charNumber += 1;
-    }
-}
-
-void Cursor::shiftUp() {
-    this->y -= height;
-    this->lineNumber -= 1;
-}
-
-void Cursor::shiftDown() {
-    this->y += height;
-    this->lineNumber += 1;
-}
-
 //getters
-int Cursor::getLineNumber(){
+int Cursor::getLineNumber() {
     return lineNumber;
 }
 
-int Cursor::getCharNumber(){
+int Cursor::getCharNumber() {
     return charNumber;
 }

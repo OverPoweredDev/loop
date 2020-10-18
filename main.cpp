@@ -1,15 +1,9 @@
 #include "editor/Utility.h"
 #include "editor/Document.h"
+#include "editor/Content.h"
 #include "editor/Cursor.h"
 
 using namespace std;
-
-bool isValid(char c) {
-    if (c >= '!' && c <= '~')
-        return true;
-    else
-        return false;
-}
 
 void printLines(Document doc, TTF_Font *font, SDL_Color color, SDL_Renderer *renderer) {
     char *line;
@@ -66,7 +60,8 @@ int main(int argc, char *argv[]) {
 
     Document document;
     document.init("input.txt");
-    document.printToConsole();
+
+    Content content(&document, &cursor);
 
 /*======< Create SDL Window>==========================================================================================*/
 
@@ -89,40 +84,45 @@ int main(int argc, char *argv[]) {
 
             if (event.type == SDL_KEYDOWN) {
                 SDL_Keycode code = event.key.keysym.sym;
+                int currLine = cursor.getLineNumber();
+                int currChar = cursor.getCharNumber();
 
                 switch (code) {
                     case SDLK_ESCAPE:
                         done = true;
                         document.saveFile("output.txt");
                         break;
+                    case SDLK_ENTER:
+                        document.createLine(currLine, 1);
+                        content.shiftPos(++currLine,0);
+                        break;
                     case SDLK_UP:
-                        cursor.shiftUp();
+                        content.shiftUp();
                         break;
                     case SDLK_DOWN:
-                        cursor.shiftDown();
+                        content.shiftDown();
                         break;
                     case SDLK_LEFT:
-                        cursor.shiftLeft();
+                        content.shiftLeft();
                         break;
                     case SDLK_RIGHT:
-                        cursor.shiftRight();
+                        content.shiftRight();
+                        break;
+                    case SDLK_DELETE:
+                        document.deletePos(currLine, currChar);
                         break;
                     case SDLK_BACKSPACE:
-                        cursor.shiftLeft();
-                        document.deletePos(cursor.getLineNumber(), cursor.getCharNumber());
+                        document.deletePos(currLine, currChar-1);
+                        content.shiftLeft();
                         break;
                     case SDLK_TAB:
                         for (int i = 0; i < 4; i++)
-                            cursor.shiftRight();
-                    case SDLK_DELETE:
-                        cursor.shiftLeft();
-                        document.deletePos(cursor.getLineNumber(), cursor.getCharNumber()+1);
-                        break;
+                            content.shiftRight();
                     default:
                         ascii = (char) code;
-                        cursor.shiftRight();
+                        content.shiftRight();
                         if (isValid(ascii))
-                            document.insert(cursor.getLineNumber(), cursor.getCharNumber() - 1, ascii);
+                            document.insertPos(currLine, cursor.getCharNumber() - 1, ascii);
                         break;
                 }
             }

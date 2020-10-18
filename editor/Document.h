@@ -7,12 +7,11 @@
 using namespace std;
 
 class Document {
-private:
+public:
     char **lineBuffer;
     bool documentHasChanged;
     int lineCount = 0;
 
-public:
     //file handling
     void init(std::string filename);
     void saveFile(std::string filename);
@@ -21,7 +20,9 @@ public:
     void printToConsole();
 
     //editing
-    void insert(int lineNum, int charNum, char c);
+    void createLine(int lineNum, int numLines);
+    void shiftLineDown(int lineNum);
+    void insertPos(int lineNum, int charNum, char c);
     void deletePos(int lineNum, int charNum);
 
     //getters
