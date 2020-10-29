@@ -1,7 +1,7 @@
 ![loop](https://github.com/OverPoweredDev/loop/blob/master/images/SDP_banner.png)
 
 ![C++-14](https://img.shields.io/badge/C++-14-magenta?style=for-the-badge)
-![SFML-2.5.1](https://img.shields.io/badge/SFML-2.5.1-blue?style=for-the-badge)
+![SDL-2.0](https://img.shields.io/badge/SDL-2.0-blue?style=for-the-badge)
 ![PR](https://img.shields.io/badge/PRs-welcome-red?style=for-the-badge)
 ![OpenSource](https://img.shields.io/badge/Open-Source-greun?style=for-the-badge)
 ![Follow_Me](https://img.shields.io/github/followers/OverPoweredDev?style=for-the-badge)
@@ -9,7 +9,7 @@
 
 ### Introduction
 
-Simple Text Editor built using SFML and C++ for a College Project
+Simple Text Editor built using SDL and C++ for a College Project
 
 ### Navigation
 
@@ -19,39 +19,34 @@ Simple Text Editor built using SFML and C++ for a College Project
 ##### Repo Tree
 ```
 ├─ editor
-│  ├─ Buffer.cpp
-│  ├─ Buffer.h
 │  ├─ Content.cpp
 │  ├─ Content.h
 │  ├─ Cursor.cpp
 │  ├─ Cursor.h
 │  ├─ Document.cpp
 │  ├─ Document.h
-│  ├─ InputController.cpp
-│  ├─ InputController.h
-│  ├─ TextSelection.cpp
-│  ├─ TextSelection.h
-│  ├─ Window.cpp
-│  └─ Window.h
-├─ images
-│  ├─ Layer_diagram.svg
-│  └─ SDP_banner.png
+│  └─ Utility.h
+├─ fonts
+│  ├─ JetBrainsMono-Light.ttf
+│  ├─ JetBrainsMono-Regular.ttf
+│  ├─ RobotoMono-Medium.ttf
+│  └─ RobotoMono-Regular.ttf
 ├─ Makefile
 ├─ README.md
-├─ editor.cpp
 ├─ input.txt
+├─ main.cpp
 └─ output.txt
 ```
 
 ### Setup
 
-Extract the files into a directory then run `make`
+Extract the files into a directory then run `make && create`
 
 ### Also Look at
 
-[SFML Documentation](https://www.sfml-dev.org/documentation/2.5.1/)
+[About SDL](https://www.libsdl.org/)
 
-[Writing a Makefile](https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/)
+[Makefiles](https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/)
 
 ### About Me
 
