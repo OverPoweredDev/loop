@@ -9,7 +9,13 @@
 
 ### Introduction
 
-Simple Text Editor built using SDL and C++ for a College Project
+Simple Text Editor built using SDL and C++ for a College Project. Main planned functionalities are:
+- Basic Text Insertion/Deletion
+- File Handling (text can be saved/imported)
+- Special Keyboard Mappings (Ctrl-Z, etc.)
+- Render Editor using software like SFML/SDL
+- Implement a Cursor
+- Enable Rich text functions (Bold, Italics, etc.)
 
 ### Navigation
 
