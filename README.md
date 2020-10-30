@@ -20,7 +20,7 @@ Simple Text Editor built using SDL and C++ for a College Project. Main planned f
 ### Navigation
 
 ##### Layer Diagram
-<img src = "https://github.com/OverPoweredDev/loop/blob/master/images/Layer_diagram.svg" alt = "layer_diagram" width = "400" height = "500"></img>
+![Layer Diagram](https://github.com/OverPoweredDev/loop/blob/master/images/Layer_diagram.svg)
 
 ##### Repo Tree
 ```
