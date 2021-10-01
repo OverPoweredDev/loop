@@ -56,6 +56,6 @@ Extract the files into a directory then run `make && create`
 
 ### About Me
 
-**Omkar Prabhune**: Sophomore in CSE Department at VIT, Pune
+**Omkar Prabhune**: Junior in CSE Department at VIT, Pune
 
 [Check out my other repos!](https://github.com/OverPoweredDev?tab=repositories)
