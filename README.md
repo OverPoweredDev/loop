@@ -2,7 +2,7 @@
 
 ![C++-14](https://img.shields.io/badge/C++-14-magenta?style=for-the-badge)
 ![SDL-2.0](https://img.shields.io/badge/SDL-2.0-blue?style=for-the-badge)
-![PR](https://img.shields.io/badge/PRs-welcome-red?style=for-the-badge)
+![PR](https://img.shields.io/badge/PRs-welcome-orange?style=for-the-badge)
 ![OpenSource](https://img.shields.io/badge/Open-Source-greun?style=for-the-badge)
 ![Follow_Me](https://img.shields.io/github/followers/OverPoweredDev?style=for-the-badge)
 
